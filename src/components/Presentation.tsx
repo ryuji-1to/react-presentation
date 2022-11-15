@@ -1,14 +1,15 @@
 import { ReactNode, useCallback, useState } from 'react';
-import { useSlides } from '../hooks/use-slides';
+import { usePresentation } from '../hooks/use-presentation';
 import { HiArrowNarrowLeft, HiArrowNarrowRight, HiOutlineX, HiClipboard } from 'react-icons/hi';
-import { waitForAll } from 'recoil';
+import { useSlides } from '../hooks/use-slides';
 
 type Props = {
   children: ReactNode;
 };
 
 export const Presentation = (props: Props) => {
-  const { nextSlide, prevSlide, setSlide, allSlides, count } = useSlides();
+  const { nextSlide, prevSlide, setSlide, count } = usePresentation();
+  const { slides } = useSlides();
   const [isOpen, setIsOpen] = useState(false);
   const handleOpen = useCallback(() => {
     setIsOpen(true);
@@ -28,7 +29,7 @@ export const Presentation = (props: Props) => {
             </button>
           </header>
           <div className="space-y-2">
-            {allSlides.map((slide, i) => (
+            {slides.map((slide, i) => (
               <div className="flex justify-center">
                 <button
                   className={`${i === count ? 'text-red-400' : 'text-gray-300'} text-lg font-bold`}
@@ -51,6 +52,7 @@ export const Presentation = (props: Props) => {
           <button onClick={prevSlide}>
             <HiArrowNarrowLeft className="text-xl" />
           </button>
+          <span>{count + 1 + ' / ' + slides.length}</span>
           <button onClick={nextSlide}>
             <HiArrowNarrowRight className="text-xl" />
           </button>

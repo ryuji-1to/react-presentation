@@ -1,8 +1,8 @@
 import { Presentation } from './components/Presentation';
-import { useSlides } from './hooks/use-slides';
+import { usePresentation } from './hooks/use-presentation';
 
 function App() {
-  const { currentSlide } = useSlides();
+  const { currentSlide } = usePresentation();
 
   return <Presentation>{currentSlide}</Presentation>;
 }

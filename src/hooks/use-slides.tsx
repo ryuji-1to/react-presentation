@@ -1,20 +1,13 @@
-import { useCallback, useEffect, useMemo } from 'react';
-import { atom, useRecoilState } from 'recoil';
+import { useMemo } from 'react';
 import { Center } from '../components/Center';
 import { Section } from '../components/Section';
 import { SelfIntroduction } from '../components/slides/SelfIntroduction';
-import { useKey } from 'rooks';
-
-const slideState = atom({
-  key: 'slideCount',
-  default: 0
-});
+import { Title } from '../components/slides/Title';
 
 export const useSlides = () => {
-  const [count, setCount] = useRecoilState(slideState);
-
-  const allSlides = useMemo(() => {
+  const slides = useMemo(() => {
     return [
+      <Title />,
       <SelfIntroduction />,
       <Center>
         <Section>
@@ -27,31 +20,6 @@ export const useSlides = () => {
         </Section>
       </Center>
     ];
-  }, [count]);
-
-  const currentSlide = allSlides[count];
-
-  const nextSlide = useCallback(() => {
-    setCount((c) => Math.min(allSlides.length - 1, c + 1));
   }, []);
-
-  const prevSlide = useCallback(() => {
-    setCount((c) => Math.max(0, c - 1));
-  }, []);
-
-  const setSlide = useCallback((count: number) => {
-    setCount(count);
-  }, []);
-
-  useKey(['Enter'], nextSlide);
-  useKey(['h'], prevSlide);
-
-  return {
-    count,
-    allSlides,
-    currentSlide,
-    nextSlide,
-    prevSlide,
-    setSlide
-  };
+  return { slides };
 };
