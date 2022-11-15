@@ -30,8 +30,11 @@ export const Presentation = (props: Props) => {
           <div className="space-y-2">
             {allSlides.map((slide, i) => (
               <div className="flex justify-center">
-                <button className={i === count ? 'text-red-300' : 'text-black'} onClick={() => setSlide(i)}>
-                  {i + 1}
+                <button
+                  className={`${i === count ? 'text-red-400' : 'text-gray-300'} text-lg font-bold`}
+                  onClick={() => setSlide(i)}
+                >
+                  slide {i + 1}
                 </button>
               </div>
             ))}
