@@ -18,6 +18,9 @@ export const useSlides = () => {
         <Section>
           <h1>Slide 3</h1>
         </Section>
+      </Center>,
+      <Center>
+        <p>hello</p>
       </Center>
     ];
   }, []);
