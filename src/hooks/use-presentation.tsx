@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { atom, useRecoilState } from 'recoil';
-import { useKey } from 'rooks';
 import { useSlides } from './use-slides';
+import { useKey } from './use-key';
 
 const slideState = atom({
   key: 'slideCount',
@@ -26,7 +26,7 @@ export const usePresentation = () => {
     setCount(count);
   }, []);
 
-  useKey(['Enter'], nextSlide);
+  useKey(['Enter', 'l'], nextSlide);
   useKey(['h'], prevSlide);
 
   return {
