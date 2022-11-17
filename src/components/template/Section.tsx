@@ -4,5 +4,5 @@ type Props = {
   children: ReactNode;
 };
 export const Section = (props: Props) => {
-  return <section className="prose-lg">{props.children}</section>;
+  return <div className="prose-lg">{props.children}</div>;
 };

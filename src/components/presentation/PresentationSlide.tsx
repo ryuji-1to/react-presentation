@@ -7,10 +7,10 @@ type Props = {
 };
 export const PresentationSlide = ({ children }: Props) => {
   return (
-    <main className="h-screen flex flex-col max-w-6xl mx-auto">
+    <main className="flex flex-col h-screen max-w-6xl mx-auto">
       <PresentationHeader />
       <div className="flex-1 px-4 pt-1">
-        <div className="h-full bg-white rounded-lg backdrop-blur-xl bg-opacity-70 shadow-2xl">{children}</div>
+        <div className="h-full p-4 bg-white bg-opacity-50 shadow-2xl rounded-2xl backdrop-blur-xl">{children}</div>
       </div>
       <PresentationFooter />
     </main>
