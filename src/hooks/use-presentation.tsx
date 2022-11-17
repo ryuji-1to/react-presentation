@@ -12,7 +12,7 @@ export const usePresentation = () => {
   const [count, setCount] = useRecoilState(slideState);
   const { slides } = useSlides();
 
-  const currentSlide = slides[count];
+  const currentSlide = slides[count].slide;
 
   const nextSlide = useCallback(() => {
     setCount((c) => Math.min(slides.length - 1, c + 1));

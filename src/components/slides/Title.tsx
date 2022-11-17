@@ -1,5 +1,5 @@
-import { Center } from '../Center';
-import { Section } from '../Section';
+import { Center } from '../template/Center';
+import { Section } from '../template/Section';
 
 export const Title = () => {
   return (
