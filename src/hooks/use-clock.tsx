@@ -1,16 +1,18 @@
 import { useEffect, useState } from 'react';
 
 export const useClock = () => {
-  const [time, setTime] = useState(Date.now());
+  const [time, setTime] = useState(() => Date.now());
   const now = new Date(time);
   const Clock = (props: { size?: 'sm' | 'lg' }) => {
     const date = now.getHours().toString().padStart(2, '0') + ':' + now.getMinutes().toString().padStart(2, '0');
     return (
       <span
-        className={`${props.size === 'sm' ? 'text-sm' : props.size === 'lg' ? 'text-lg' : 'text-md'} text-gray-300`}
+        className={`${
+          props.size === 'sm' ? 'text-sm' : props.size === 'lg' ? 'text-lg' : 'text-md'
+        } text-gray-600 font-bold`}
       >
         <span className="inline-block w-10 text-center">{date}</span>
-        <span className="inline-block w-6 text-center">{now.getSeconds().toString().padStart(2, '0')}</span>
+        <span className="inline-block w-6 text-center ml-1">{now.getSeconds().toString().padStart(2, '0')}</span>
       </span>
     );
   };

@@ -1,4 +1,4 @@
-import { Presentation } from './components/Presentation';
+import { Presentation } from './components/presentation/Presentation';
 import { usePresentation } from './hooks/use-presentation';
 
 function App() {
