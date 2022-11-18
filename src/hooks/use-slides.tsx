@@ -1,8 +1,9 @@
 import { FC, ReactElement, useMemo } from 'react';
 import { Center } from '../components/template/Center';
-import { Section } from '../components/template/Section';
 import { SelfIntroduction } from '../components/slides/SelfIntroduction';
 import { Title } from '../components/slides/Title';
+import { Prose } from '../components/template/Prose';
+import { Optimistic } from '../components/slides/ux/Optimistic';
 
 export const useSlides = () => {
   const createSlide = (slide: ReactElement) => {
@@ -17,20 +18,21 @@ export const useSlides = () => {
     return [
       <Title />,
       <SelfIntroduction />,
+      <Optimistic />,
       <Center>
-        <Section>
+        <Prose>
           <h1>Slide 1</h1>
-        </Section>
+        </Prose>
       </Center>,
       <Center>
-        <Section>
+        <Prose>
           <h1>Slide 2</h1>
-        </Section>
+        </Prose>
       </Center>,
       <Center>
-        <Section>
+        <Prose>
           <h1>Slide 3</h1>
-        </Section>
+        </Prose>
       </Center>
     ];
   }, []);

@@ -1,16 +1,13 @@
-import { Center } from '../template/Center';
-import { Section } from '../template/Section';
+import { Slide } from '../template/Slide';
 
 export const Title = () => {
   return (
-    <Center>
-      <Section>
-        <h1 className="font-bold text-center text-gray-700 leading-normal">
-          エンジニアも
-          <br />
-          知っておきたい UI デザイン
-        </h1>
-      </Section>
-    </Center>
+    <Slide positon="center" prose>
+      <h1 className="font-bold leading-normal text-center text-gray-700">
+        エンジニアも
+        <br />
+        知っておきたい UI デザイン
+      </h1>
+    </Slide>
   );
 };
