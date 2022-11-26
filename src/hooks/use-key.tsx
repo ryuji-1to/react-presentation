@@ -14,6 +14,10 @@ export const useKey = (keys: Array<number | string>, callback: Callback) => {
   );
 
   useEffect(() => {
+    callbackRef.current = callback;
+  }, [callback]);
+
+  useEffect(() => {
     window.addEventListener('keydown', handleKeydown);
     return () => window.removeEventListener('keydown', handleKeydown);
   }, [callback, handleKeydown, keys]);

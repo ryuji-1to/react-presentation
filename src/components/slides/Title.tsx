@@ -1,12 +1,13 @@
-import { Center } from '../Center';
-import { Section } from '../Section';
+import { Slide } from '../template/Slide';
 
 export const Title = () => {
   return (
-    <Center>
-      <Section>
-        <h1>Title</h1>
-      </Section>
-    </Center>
+    <Slide position="center" prose>
+      <h1 className="font-bold leading-normal text-center text-gray-700">
+        エンジニアも知っておきたい
+        <br />
+        UI/UX デザインの基本
+      </h1>
+    </Slide>
   );
 };
