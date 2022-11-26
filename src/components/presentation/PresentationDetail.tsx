@@ -1,8 +1,16 @@
 import { ReactNode } from 'react';
+import { PresentationFooter } from './PresentationFooter';
+import { PresentationHeader } from './PresentationHeader';
 
 type Props = {
   children: ReactNode;
 };
 export const PresentationDetail = ({ children }: Props) => {
-  return <div className="bg-gradient-to-br via-purple-100 from-blue-200 to-blue-200">{children}</div>;
+  return (
+    <main className="flex flex-col h-screen max-w-6xl mx-auto">
+      <PresentationHeader />
+      {children}
+      <PresentationFooter />
+    </main>
+  );
 };

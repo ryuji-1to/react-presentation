@@ -1,14 +1,13 @@
 import { ReactNode, useCallback, useState } from 'react';
 import { SlidePanel } from './SlidePanel';
 import { useKey } from '../../hooks/use-key';
-import { PresentationSlide } from './PresentationSlide';
 import { PresentationDetail } from './PresentationDetail';
 
 type Props = {
   children: ReactNode;
 };
 
-export const Presentation = (props: Props) => {
+export const Presentation = ({ children }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpen = useCallback(() => {
@@ -25,7 +24,7 @@ export const Presentation = (props: Props) => {
   return (
     <PresentationDetail>
       <SlidePanel isOpen={isOpen} onClose={handleClose} />
-      <PresentationSlide>{props.children}</PresentationSlide>
+      {children}
     </PresentationDetail>
   );
 };

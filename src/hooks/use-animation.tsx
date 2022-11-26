@@ -1,18 +1,19 @@
 import { useEffect } from 'react';
 
+const callback = (entries: IntersectionObserverEntry[], className: string) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add(className);
+    } else {
+      entry.target.classList.remove(className);
+    }
+  });
+};
+
 export const useAnimation = () => {
   const fadeIn = () => {
-    const slideInAnimation = () => {
-      const callback = (entries: IntersectionObserverEntry[]) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-fadeIn');
-          } else {
-            entry.target.classList.remove('animate-fadeIn');
-          }
-        });
-      };
-      const observer = new IntersectionObserver(callback);
+    const fadeInAnimation = () => {
+      const observer = new IntersectionObserver((entries) => callback(entries, 'animate-fadeIn'));
       const target = document.querySelector('.fadeIn');
       if (!target) {
         return;
@@ -21,7 +22,7 @@ export const useAnimation = () => {
       observer.observe(target);
     };
     useEffect(() => {
-      slideInAnimation();
+      fadeInAnimation();
     }, []);
   };
 

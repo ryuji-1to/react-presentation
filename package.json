@@ -17,6 +17,7 @@
     "recoil": "^0.7.6"
   },
   "devDependencies": {
+    "@tailwindcss/line-clamp": "^0.4.2",
     "@tailwindcss/typography": "^0.5.8",
     "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",

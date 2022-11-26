@@ -2,11 +2,11 @@ import { Slide } from '../template/Slide';
 
 export const Title = () => {
   return (
-    <Slide positon="center" prose>
+    <Slide position="center" prose>
       <h1 className="font-bold leading-normal text-center text-gray-700">
-        エンジニアも
+        エンジニアも知っておきたい
         <br />
-        知っておきたい UI デザイン
+        UI/UX デザインの基本
       </h1>
     </Slide>
   );
