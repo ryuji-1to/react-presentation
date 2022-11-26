@@ -12,7 +12,7 @@ export const useSlides = () => {
   };
 
   const slides = useMemo(() => {
-    return [<ColorPrincipal />];
+    return [<ColorPrincipal key="colorPricipal" />];
   }, []);
   return { slides: slides.map((slide) => createSlide(slide)) };
 };
