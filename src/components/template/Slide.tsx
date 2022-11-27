@@ -14,12 +14,13 @@ type Props = {
   resetKeyEvent?: boolean;
 } & ComponentPropsWithoutRef<'div'>;
 
-const getPosition = (positon: string | undefined) => {
-  switch (positon) {
+const getPosition = (position: string | undefined) => {
+  switch (position) {
     case 'center':
       return Center;
-    default:
-      return null;
+    default: {
+      throw Error(`${position} is not position`);
+    }
   }
 };
 
@@ -27,8 +28,9 @@ const getAnimation = (animation: string | undefined) => {
   switch (animation) {
     case 'fadeIn':
       return FadeIn;
-    default:
-      return null;
+    default: {
+      throw Error(`${animation} is not animation`);
+    }
   }
 };
 
