@@ -1,18 +1,19 @@
 import { useMemo } from 'react';
 import type { ReactElement } from 'react';
-import { ColorPrincipal } from '../components/slides/ColorPrincipal';
+import { Example } from '../components/slides/Example';
 
 export const useSlides = () => {
-  const createSlide = (slide: ReactElement) => {
-    return {
+  const createSlides = (slides: ReactElement[]) => {
+    return slides.map((slide) => ({
       slide,
       // @ts-ignore
       text: slide.type.name
-    };
+    }));
   };
 
   const slides = useMemo(() => {
-    return [<ColorPrincipal key="colorPricipal" />];
+    return createSlides([<Example key="example" />]);
   }, []);
-  return { slides: slides.map((slide) => createSlide(slide)) };
+
+  return { slides };
 };
