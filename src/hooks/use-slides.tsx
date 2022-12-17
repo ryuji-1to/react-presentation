@@ -1,6 +1,8 @@
 import { useMemo } from 'react';
 import type { ReactElement } from 'react';
-import { Example } from '../components/slides/Example';
+import { WhatIsTrpc } from '../components/slides/WhatIsTrpc';
+import { PresenTitle } from '../components/slides/PresenTitle';
+import { TableOfContents } from '../components/slides/TableOfContents';
 
 export const useSlides = () => {
   const createSlides = (slides: ReactElement[]) => {
@@ -12,7 +14,11 @@ export const useSlides = () => {
   };
 
   const slides = useMemo(() => {
-    return createSlides([<Example key="example" />]);
+    return createSlides([
+      <PresenTitle key="presen-title" />,
+      <TableOfContents key="Table of contents" />,
+      <WhatIsTrpc key="what is trpc" />
+    ]);
   }, []);
 
   return { slides };
