@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@tailwindcss/line-clamp': ^0.4.2
   '@tailwindcss/typography': ^0.5.8
+  '@types/node': ^18.11.16
   '@types/react': ^18.0.24
   '@types/react-dom': ^18.0.8
   '@vitejs/plugin-react': ^2.2.0
@@ -28,6 +29,7 @@ dependencies:
 devDependencies:
   '@tailwindcss/line-clamp': 0.4.2_tailwindcss@3.2.4
   '@tailwindcss/typography': 0.5.8_tailwindcss@3.2.4
+  '@types/node': 18.11.16
   '@types/react': 18.0.25
   '@types/react-dom': 18.0.9
   '@vitejs/plugin-react': 2.2.0_vite@3.2.4
@@ -36,7 +38,7 @@ devDependencies:
   prettier: 2.8.0
   tailwindcss: 3.2.4_postcss@8.4.19
   typescript: 4.9.3
-  vite: 3.2.4
+  vite: 3.2.4_@types+node@18.11.16
 
 packages:
 
@@ -404,6 +406,10 @@ packages:
       tailwindcss: 3.2.4_postcss@8.4.19
     dev: true
 
+  /@types/node/18.11.16:
+    resolution: {integrity: sha512-6T7P5bDkRhqRxrQtwj7vru+bWTpelgtcETAZEUSdq0YISKz8WKdoBukQLYQQ6DFHvU9JRsbFq0JH5C51X2ZdnA==}
+    dev: true
+
   /@types/prop-types/15.7.5:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
     dev: true
@@ -439,7 +445,7 @@ packages:
       '@babel/plugin-transform-react-jsx-source': 7.19.6_@babel+core@7.20.2
       magic-string: 0.26.7
       react-refresh: 0.14.0
-      vite: 3.2.4
+      vite: 3.2.4_@types+node@18.11.16
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -1360,7 +1366,7 @@ packages:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
     dev: true
 
-  /vite/3.2.4:
+  /vite/3.2.4_@types+node@18.11.16:
     resolution: {integrity: sha512-Z2X6SRAffOUYTa+sLy3NQ7nlHFU100xwanq1WDwqaiFiCe+25zdxP1TfCS5ojPV2oDDcXudHIoPnI1Z/66B7Yw==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -1385,6 +1391,7 @@ packages:
       terser:
         optional: true
     dependencies:
+      '@types/node': 18.11.16
       esbuild: 0.15.15
       postcss: 8.4.19
       resolve: 1.22.1

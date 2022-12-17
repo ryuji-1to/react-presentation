@@ -1,12 +1,15 @@
+import { AnchorLink } from '../share/AnchorLink';
 import { Slide } from '../template/Slide';
 
 export const WhatIsTrpc = () => {
   return (
-    <Slide slideTitle="What's Trpc...???" animation="fadeIn" prose>
-      <ul className="list-decimal text-2xl">
-        <li>Hello</li>
-        <li>World</li>
-      </ul>
+    <Slide slideTitle="What's tRPC...???" animation="fadeIn" prose>
+      <p className="flex">
+        <span className="text-2 mr-2">👉</span>
+        <AnchorLink className="text-1.5" href="https://trpc.io/">
+          公式ドキュメント
+        </AnchorLink>
+      </p>
     </Slide>
   );
 };
