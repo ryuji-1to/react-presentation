@@ -31,7 +31,7 @@ const getAnimation = (animation?: Animation) => {
 
 const Heading = ({ children, className, ...rest }: { children: ReactNode } & ComponentPropsWithoutRef<'h1'>) => {
   return (
-    <h1 {...rest} className={`text-5xl font-bold text-gray-800 ${className}`}>
+    <h1 {...rest} className={`text-6xl font-bold text-gray-800 ${className}`}>
       {children}
     </h1>
   );
@@ -52,6 +52,7 @@ export const Slide = ({ children, animation, position, prose, slideTitle, resetK
     useKey(['Enter', 'l'], nextSlide);
     useKey(['h'], prevSlide);
   }
+
   const Position = getPosition(position);
   const Animation = getAnimation(animation);
 
@@ -75,8 +76,10 @@ export const Slide = ({ children, animation, position, prose, slideTitle, resetK
   }
 
   return (
-    <div className="flex-1 pt-1">
-      <div className="h-full p-9 bg-white bg-opacity-50 shadow-2xl rounded-2xl backdrop-blur-xl">{element}</div>
+    <div className="flex-1 mx-auto flex items-center">
+      <div className="h-[720px] aspect-video p-9 bg-white bg-opacity-60 shadow-2xl  rounded-2xl backdrop-blur-xl">
+        {element}
+      </div>
     </div>
   );
 };
