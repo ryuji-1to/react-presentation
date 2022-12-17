@@ -7,7 +7,7 @@ type Props = {
 };
 export const PresentationDetail = ({ children }: Props) => {
   return (
-    <main className="flex flex-col h-screen max-w-6xl mx-auto">
+    <main className="flex flex-col h-screen overflow-scroll">
       <PresentationHeader />
       {children}
       <PresentationFooter />
