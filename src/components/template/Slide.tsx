@@ -5,34 +5,46 @@ import { Center } from './Center';
 import { FadeIn } from './FadeIn';
 import { Prose } from './Prose';
 
-type Props = {
-  children: ReactNode;
-  position?: 'center';
-  animation?: 'fadeIn';
-  prose?: boolean;
-  slideTitle?: string;
-  resetKeyEvent?: boolean;
-} & ComponentPropsWithoutRef<'div'>;
+type Position = 'center';
 
-const getPosition = (position: string | undefined) => {
+type Animation = 'fadeIn';
+
+const getPosition = (position?: Position) => {
   switch (position) {
     case 'center':
       return Center;
     default: {
-      throw Error(`${position} is not position`);
+      return null;
     }
   }
 };
 
-const getAnimation = (animation: string | undefined) => {
+const getAnimation = (animation?: Animation) => {
   switch (animation) {
     case 'fadeIn':
       return FadeIn;
     default: {
-      throw Error(`${animation} is not animation`);
+      return null;
     }
   }
 };
+
+const Heading = ({ children, className, ...rest }: { children: ReactNode } & ComponentPropsWithoutRef<'h1'>) => {
+  return (
+    <h1 {...rest} className={`text-5xl font-bold text-gray-800 ${className}`}>
+      {children}
+    </h1>
+  );
+};
+
+type Props = {
+  children: ReactNode;
+  position?: Position;
+  animation?: Animation;
+  prose?: boolean;
+  slideTitle?: string;
+  resetKeyEvent?: boolean;
+} & ComponentPropsWithoutRef<'div'>;
 
 export const Slide = ({ children, animation, position, prose, slideTitle, resetKeyEvent, ...rest }: Props) => {
   const { nextSlide, prevSlide } = usePresentation();
@@ -42,8 +54,10 @@ export const Slide = ({ children, animation, position, prose, slideTitle, resetK
   }
   const Position = getPosition(position);
   const Animation = getAnimation(animation);
+
   let element = (
-    <div id="slide" {...rest}>
+    <div {...rest}>
+      {slideTitle && <Heading>{slideTitle}</Heading>}
       {children}
     </div>
   );
@@ -61,11 +75,8 @@ export const Slide = ({ children, animation, position, prose, slideTitle, resetK
   }
 
   return (
-    <div className="flex-1 px-4 pt-1">
-      <div className="relative h-full p-4 bg-white bg-opacity-50 shadow-2xl rounded-2xl backdrop-blur-xl">
-        {slideTitle && <div className="absolute font-bold text-gray-400 top-4 left-4">{slideTitle}</div>}
-        {element}
-      </div>
+    <div className="flex-1 pt-1">
+      <div className="h-full p-9 bg-white bg-opacity-50 shadow-2xl rounded-2xl backdrop-blur-xl">{element}</div>
     </div>
   );
 };
