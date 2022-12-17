@@ -21,6 +21,16 @@ module.exports = {
       colors: {
         'base-black': '#252525'
       },
+      fontSize: {
+        4.5: '4.5vw',
+        4: '4vw',
+        3.5: '3.5vw',
+        3: '3vw',
+        2.5: '2.5vw',
+        2: '2vw',
+        1.5: '1.5vw',
+        1: '1vw'
+      },
       boxShadow: {
         around: 'rgba(0, 0, 0, 0.1) 0px 4px 12px;'
       }
