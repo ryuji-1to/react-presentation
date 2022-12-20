@@ -21,6 +21,9 @@ module.exports = {
       colors: {
         'base-black': '#252525'
       },
+      border: {
+        glass: '1px solid rgba(255, 255, 255, 0.3)'
+      },
       fontSize: {
         4.5: '4.5vw',
         4: '4vw',

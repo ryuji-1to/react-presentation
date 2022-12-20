@@ -6,3 +6,13 @@ body,
 html {
   height: 100%;
 }
+
+.glass {
+  background: radial-gradient(
+    84.55% 217.01% at 8.28% 13.52%,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.28) 100%
+  );
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}

@@ -9,7 +9,7 @@ export const FadeIn = ({ children, className, ...rest }: Props) => {
   useAnimation().fadeIn();
 
   return (
-    <div {...rest} className={`fadeIn ${className}`}>
+    <div {...rest} className={`fadeIn h-full ${className}`}>
       {children}
     </div>
   );

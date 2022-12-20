@@ -6,7 +6,7 @@ type Props = {
 
 export const Prose = ({ children, className, ...rest }: Props) => {
   return (
-    <div {...rest} className={`prose-lg ${className}`}>
+    <div {...rest} className={`prose-lg h-full ${className || ''}`}>
       {children}
     </div>
   );
