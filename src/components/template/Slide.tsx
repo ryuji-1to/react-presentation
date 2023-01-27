@@ -77,7 +77,7 @@ export const Slide = ({ children, animation, position, prose, slideTitle, resetK
 
   return (
     <div className="flex-1 mx-auto flex items-center">
-      <div className="w-[85vw] aspect-video p-20 bg-white/30 shadow-2xl rounded-2xl backdrop-blur-xl border border-white">
+      <div className="w-[85vw] aspect-video p-20 bg-white/40 shadow-2xl rounded-2xl backdrop-blur-xl border border-white">
         {element}
       </div>
     </div>
