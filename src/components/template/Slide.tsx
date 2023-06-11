@@ -48,10 +48,8 @@ type Props = {
 
 export const Slide = ({ children, animation, position, prose, slideTitle, resetKeyEvent, ...rest }: Props) => {
   const { nextSlide, prevSlide } = usePresentation();
-  if (!resetKeyEvent) {
-    useKey(['Enter', 'l'], nextSlide);
-    useKey(['h'], prevSlide);
-  }
+  useKey(['Enter', 'l'], nextSlide, resetKeyEvent);
+  useKey(['h'], prevSlide, resetKeyEvent);
 
   const Position = getPosition(position);
   const Animation = getAnimation(animation);
@@ -77,7 +75,7 @@ export const Slide = ({ children, animation, position, prose, slideTitle, resetK
 
   return (
     <div className="flex-1 mx-auto flex items-center">
-      <div className="w-[88vw] aspect-video p-20 bg-white bg-opacity-50 shadow-2xl rounded-2xl backdrop-blur-xl border border-white">
+      <div className="w-[85vw] aspect-video p-20 bg-white/50 shadow-2xl rounded-2xl backdrop-blur-xl border-2 border-white">
         {element}
       </div>
     </div>

@@ -6,9 +6,9 @@ export const Clock = (props: { size?: 'sm' | 'lg' }) => {
   const date = now.getHours().toString().padStart(2, '0') + ':' + now.getMinutes().toString().padStart(2, '0');
 
   useEffect(() => {
-    const timeId = setTimeout(() => setTime(Date.now()), 1000);
+    const timeId = setInterval(() => setTime(Date.now()), 1000);
     return () => clearTimeout(timeId);
-  }, [time]);
+  }, []);
 
   return (
     <span
