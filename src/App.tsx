@@ -1,10 +1,37 @@
 import { Presentation } from './components/presentation/Presentation';
 import { usePresentation } from './hooks/use-presentation';
 
-function App() {
-  const { currentSlide } = usePresentation();
+export type BGType = 'spring' | 'summer' | 'fall' | 'winter' | 'default';
 
-  return <Presentation>{currentSlide}</Presentation>;
+function getBG(type: BGType) {
+  switch (type) {
+    case 'spring':
+      return 'bg-gradient-to-br via-pink-200 from-pink-300 to-green-300';
+    case 'summer':
+      return 'bg-gradient-to-br via-yellow-200 from-sky-300 to-orange-300';
+    case 'fall':
+      return 'bg-gradient-to-br via-yellow-200 from-sky-300 to-orange-300';
+    case 'winter':
+      return 'bg-gradient-to-br via-purple-200 from-blue-300 to-sky-300';
+    case 'default':
+    default:
+      return 'bg-gradient-to-br via-slate-300 from-indigo-300 to-indigo-200';
+  }
+}
+
+function BackGround({ children, type }: { children: React.ReactNode; type: BGType }) {
+  const bg = getBG(type);
+  return <div className={`h-full ${bg}`}>{children}</div>;
+}
+
+function App() {
+  const { currentSlide, bg } = usePresentation();
+
+  return (
+    <BackGround type={bg}>
+      <Presentation>{currentSlide}</Presentation>;
+    </BackGround>
+  );
 }
 
 export default App;
