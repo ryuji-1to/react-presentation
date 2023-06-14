@@ -3,12 +3,12 @@ import { atom, useRecoilState } from 'recoil';
 import { useSlides } from './use-slides';
 import { BGType } from '@/App';
 
-const slideState = atom({
+export const slideState = atom({
   key: 'slideCount',
   default: 0
 });
 
-const bgState = atom<BGType>({
+export const bgState = atom<BGType>({
   key: 'bgType',
   default: 'default'
 });
@@ -38,6 +38,7 @@ export const usePresentation = () => {
     currentSlide,
     nextSlide,
     prevSlide,
-    setSlide
+    setSlide,
+    setBg
   };
 };

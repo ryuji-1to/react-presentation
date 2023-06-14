@@ -6,11 +6,11 @@ export type BGType = 'spring' | 'summer' | 'fall' | 'winter' | 'default';
 function getBG(type: BGType) {
   switch (type) {
     case 'spring':
-      return '';
+      return 'bg-gradient-to-br via-pink-200 from-pink-300 to-green-300';
     case 'summer':
       return 'bg-gradient-to-br via-yellow-200 from-sky-300 to-orange-300';
     case 'fall':
-      return '';
+      return 'bg-gradient-to-br via-yellow-200 from-sky-300 to-orange-300';
     case 'winter':
       return 'bg-gradient-to-br via-purple-200 from-blue-300 to-sky-300';
     case 'default':
