@@ -1,11 +1,10 @@
-import { ReactNode } from 'react';
 import { PresentationFooter } from './PresentationFooter';
 import { PresentationHeader } from './PresentationHeader';
 
 type Props = {
-  children: ReactNode;
+  children: React.ReactNode;
 };
-export const PresentationDetail = ({ children }: Props) => {
+export function PresentationDetail({ children }: Props) {
   return (
     <main className="flex flex-col h-screen overflow-scroll">
       <PresentationHeader />
@@ -13,4 +12,4 @@ export const PresentationDetail = ({ children }: Props) => {
       <PresentationFooter />
     </main>
   );
-};
+}

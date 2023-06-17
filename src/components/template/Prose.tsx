@@ -1,13 +1,11 @@
-import type { ReactNode, ComponentPropsWithoutRef } from 'react';
-
 type Props = {
-  children: ReactNode;
-} & ComponentPropsWithoutRef<'div'>;
+  children: React.ReactNode;
+} & React.ComponentPropsWithoutRef<'div'>;
 
-export const Prose = ({ children, className, ...rest }: Props) => {
+export function Prose({ children, className, ...rest }: Props) {
   return (
     <div {...rest} className={`prose-lg ${className}`}>
       {children}
     </div>
   );
-};
+}

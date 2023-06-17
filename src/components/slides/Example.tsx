@@ -1,6 +1,6 @@
 import { Slide } from '../template/Slide';
 
-export const Example = () => {
+export function Example() {
   return (
     <Slide slideTitle="Example Title" prose>
       <ul className="list-decimal text-2xl">
@@ -9,4 +9,4 @@ export const Example = () => {
       </ul>
     </Slide>
   );
-};
+}

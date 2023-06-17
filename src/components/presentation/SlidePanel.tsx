@@ -2,15 +2,15 @@ import { HiOutlineX } from 'react-icons/hi';
 import { usePresentation } from '../../hooks/use-presentation';
 import { useSlides } from '../../hooks/use-slides';
 import { Button } from '../share/Button';
+import { useReducer } from 'react';
+import { useKey } from '../../hooks/use-key';
 
-type Props = {
-  isOpen: boolean;
-  onClose: () => void;
-};
-
-export const SlidePanel = ({ isOpen, onClose }: Props) => {
+export function SlidePanel() {
   const { count, setSlide } = usePresentation();
   const { slides } = useSlides();
+  const [isOpen, handleToggle] = useReducer((isOpen) => !isOpen, false);
+
+  useKey(['o'], handleToggle);
 
   return (
     <div
@@ -18,7 +18,7 @@ export const SlidePanel = ({ isOpen, onClose }: Props) => {
         isOpen ? 'translate-x-0' : '-translate-x-56 opacity-0'
       }`}>
       <header className="flex justify-end">
-        <Button icon={<HiOutlineX className="text-gray-900" />} onClick={onClose} />
+        <Button icon={<HiOutlineX className="text-gray-900" />} onClick={handleToggle} />
       </header>
       <div className="space-y-4">
         {slides.map((slide, i) => (
@@ -39,4 +39,4 @@ export const SlidePanel = ({ isOpen, onClose }: Props) => {
       </div>
     </div>
   );
-};
+}

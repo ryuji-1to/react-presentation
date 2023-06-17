@@ -1,4 +1,3 @@
-import { ComponentPropsWithoutRef, ReactNode } from 'react';
 import { useKey } from '../../hooks/use-key';
 import { usePresentation } from '../../hooks/use-presentation';
 import { Center } from './Center';
@@ -9,7 +8,7 @@ type Position = 'center';
 
 type Animation = 'fadeIn';
 
-const getPosition = (position?: Position) => {
+function getPosition(position?: Position) {
   switch (position) {
     case 'center':
       return Center;
@@ -17,9 +16,9 @@ const getPosition = (position?: Position) => {
       return null;
     }
   }
-};
+}
 
-const getAnimation = (animation?: Animation) => {
+function getAnimation(animation?: Animation) {
   switch (animation) {
     case 'fadeIn':
       return FadeIn;
@@ -27,26 +26,30 @@ const getAnimation = (animation?: Animation) => {
       return null;
     }
   }
-};
+}
 
-const Heading = ({ children, className, ...rest }: { children: ReactNode } & ComponentPropsWithoutRef<'h1'>) => {
+function Heading({
+  children,
+  className,
+  ...rest
+}: { children: React.ReactNode } & React.ComponentPropsWithoutRef<'h1'>) {
   return (
     <h1 {...rest} className={`text-4.5 font-bold text-gray-800 ${className}`}>
       {children}
     </h1>
   );
-};
+}
 
 type Props = {
-  children: ReactNode;
+  children: React.ReactNode;
   position?: Position;
   animation?: Animation;
   prose?: boolean;
   slideTitle?: string;
   resetKeyEvent?: boolean;
-} & ComponentPropsWithoutRef<'div'>;
+} & React.ComponentPropsWithoutRef<'div'>;
 
-export const Slide = ({ children, animation, position, prose, slideTitle, resetKeyEvent, ...rest }: Props) => {
+export function Slide({ children, animation, position, prose, slideTitle, resetKeyEvent, ...rest }: Props) {
   const { nextSlide, prevSlide } = usePresentation();
   useKey(['Enter', 'l'], nextSlide, resetKeyEvent);
   useKey(['h'], prevSlide, resetKeyEvent);
@@ -75,9 +78,9 @@ export const Slide = ({ children, animation, position, prose, slideTitle, resetK
 
   return (
     <div className="flex-1 mx-auto flex items-center">
-      <div className="w-[85vw] aspect-video p-20 bg-white/50 shadow-2xl rounded-2xl backdrop-blur-xl border-2 border-white">
+      <div className="w-[85vw] aspect-video p-20 bg-white/50 shadow-2xl rounded-2xl backdrop-blur-3xl border-2 border-white">
         {element}
       </div>
     </div>
   );
-};
+}

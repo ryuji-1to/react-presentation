@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import type { ReactElement } from 'react';
 import { Example } from '../components/slides/Example';
 
-export const useSlides = () => {
+export function useSlides() {
   const createSlides = (slides: ReactElement[]) => {
     return slides.map((slide) => ({
       slide,
@@ -16,4 +16,4 @@ export const useSlides = () => {
   }, []);
 
   return { slides };
-};
+}
