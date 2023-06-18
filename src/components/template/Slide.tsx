@@ -40,16 +40,45 @@ function Heading({
   );
 }
 
+function List({ itemList, className }: { itemList?: React.ReactNode[]; className?: string }) {
+  return (
+    <ul className={className}>
+      {itemList?.map((item, i) => (
+        <li key={i}>{item}</li>
+      ))}
+    </ul>
+  );
+}
+
+type ConditionalProps =
+  | {
+      children: React.ReactNode | ((elements: { List: typeof List }) => React.ReactNode);
+      renderContent?: never;
+    }
+  | {
+      children?: never;
+      renderContent: (elements: { List: typeof List }) => React.ReactNode;
+    };
+
 type Props = {
-  children: React.ReactNode;
   position?: Position;
   animation?: Animation;
   prose?: boolean;
   slideTitle?: string;
   resetKeyEvent?: boolean;
-} & React.ComponentPropsWithoutRef<'div'>;
+} & ConditionalProps &
+  Omit<React.ComponentPropsWithoutRef<'div'>, 'children'>;
 
-export function Slide({ children, animation, position, prose, slideTitle, resetKeyEvent, ...rest }: Props) {
+export function Slide({
+  children,
+  animation,
+  position,
+  prose,
+  slideTitle,
+  resetKeyEvent,
+  renderContent,
+  ...rest
+}: Props) {
   const { nextSlide, prevSlide } = usePresentation();
   useKey(['Enter', 'l'], nextSlide, resetKeyEvent);
   useKey(['h'], prevSlide, resetKeyEvent);
@@ -60,7 +89,8 @@ export function Slide({ children, animation, position, prose, slideTitle, resetK
   let element = (
     <div {...rest}>
       {slideTitle && <Heading>{slideTitle}</Heading>}
-      {children}
+      {renderContent?.({ List })}
+      {typeof children === 'function' ? children({ List }) : children}
     </div>
   );
 
