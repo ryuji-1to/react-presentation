@@ -16,16 +16,31 @@ function getBG(type: BGType) {
       return 'bg-gradient-to-br via-slate-200 from-indigo-200 to-indigo-200';
   }
 }
+
+function getLocal(): BGType {
+  const value = localStorage.getItem('slide-bg-theme');
+  if (!value) {
+    return 'Default';
+  }
+  return value as BGType;
+}
+
+function setLocal(value: BGType) {
+  localStorage.setItem('slide-bg-theme', value);
+}
 export const bgState = atom<BGType>({
   key: 'bgType',
-  default: 'Default'
+  default: getLocal()
 });
 
-// TODO: LocalStorageに保存する
 export function useBg() {
-  const [bgType, setBgType] = useRecoilState(bgState);
+  const [bgType, setBg] = useRecoilState(bgState);
 
   const bg = getBG(bgType);
+  const setBgType = (value: BGType) => {
+    setBg(value);
+    setLocal(value);
+  };
 
   return { bg, bgType, setBgType };
 }
