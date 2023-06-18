@@ -3,6 +3,7 @@ import { usePresentation } from '../../hooks/use-presentation';
 import { Center } from './Center';
 import { FadeIn } from './FadeIn';
 import { Prose } from './Prose';
+import * as Parts from './parts';
 
 type Position = 'center';
 
@@ -40,24 +41,14 @@ function Heading({
   );
 }
 
-function List({ itemList, className }: { itemList?: React.ReactNode[]; className?: string }) {
-  return (
-    <ul className={className}>
-      {itemList?.map((item, i) => (
-        <li key={i}>{item}</li>
-      ))}
-    </ul>
-  );
-}
-
 type ConditionalProps =
   | {
-      children: React.ReactNode | ((elements: { List: typeof List }) => React.ReactNode);
+      children: React.ReactNode | ((elements: typeof Parts) => React.ReactNode);
       renderContent?: never;
     }
   | {
       children?: never;
-      renderContent: (elements: { List: typeof List }) => React.ReactNode;
+      renderContent: (elements: typeof Parts) => React.ReactNode;
     };
 
 type Props = {
@@ -89,8 +80,8 @@ export function Slide({
   let element = (
     <div {...rest}>
       {slideTitle && <Heading contentEditable>{slideTitle}</Heading>}
-      {renderContent?.({ List })}
-      {typeof children === 'function' ? children({ List }) : children}
+      {renderContent?.(Parts)}
+      {typeof children === 'function' ? children(Parts) : children}
     </div>
   );
 

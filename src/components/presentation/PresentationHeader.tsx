@@ -21,18 +21,14 @@ function BgSelect() {
   const handleClose = () => {
     setIsOpen(false);
   };
-  const ref = useRef<HTMLUListElement>(null);
 
-  const handleToggle = () => {
-    setIsOpen((prev) => !prev);
+  const handleOpen = () => {
+    setIsOpen(true);
   };
-  console.log(isOpen);
-
-  useClickOutside(ref, handleClose);
 
   return (
     <div className="relative">
-      <Button icon={<TfiPalette />} onClick={handleToggle} />
+      <Button icon={<TfiPalette />} onClick={handleOpen} />
       {isOpen && <SelectBg onClose={handleClose} />}
     </div>
   );
