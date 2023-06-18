@@ -34,7 +34,7 @@ function Heading({
   ...rest
 }: { children: React.ReactNode } & React.ComponentPropsWithoutRef<'h1'>) {
   return (
-    <h1 {...rest} className={`text-4.5 font-bold text-gray-800 ${className}`}>
+    <h1 {...rest} className={`text-4.5 font-bold text-gray-800 outline-none ${className}`}>
       {children}
     </h1>
   );
@@ -88,7 +88,7 @@ export function Slide({
 
   let element = (
     <div {...rest}>
-      {slideTitle && <Heading>{slideTitle}</Heading>}
+      {slideTitle && <Heading contentEditable>{slideTitle}</Heading>}
       {renderContent?.({ List })}
       {typeof children === 'function' ? children({ List }) : children}
     </div>

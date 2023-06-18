@@ -8,13 +8,13 @@ import { useKey } from '../../hooks/use-key';
 export function SlidePanel() {
   const { count, setSlide } = usePresentation();
   const { slides } = useSlides();
-  const [isOpen, handleToggle] = useReducer((isOpen) => !isOpen, false);
+  const [isOpen, handleToggle] = useReducer((isOpen: boolean) => !isOpen, false);
 
   useKey(['o'], handleToggle);
 
   return (
     <div
-      className={`h-screen absolute top-0 left-0 z-10 bg-gray-700 bg-opacity-90 backdrop-blur-sm transition w-56 duration-300 rounded-tr-lg shadow-2xl p-3 overflow-auto  ${
+      className={`h-screen absolute top-0 left-0 z-10 bg-gray-700 bg-opacity-90 backdrop-blur-sm transition w-56 duration-300 shadow-2xl p-3 overflow-auto  ${
         isOpen ? 'translate-x-0' : '-translate-x-56 opacity-0'
       }`}>
       <header className="flex justify-end">
@@ -22,7 +22,7 @@ export function SlidePanel() {
       </header>
       <div className="space-y-4">
         {slides.map((slide, i) => (
-          <div className="flex flex-col items-center justify-center w-full" key={slide.text}>
+          <div key={i} className="flex flex-col items-center justify-center w-full">
             <Button onClick={() => setSlide(i)} className="w-full">
               <span className={`${i === count ? 'text-red-400' : 'text-gray-300'} font-bold mb-1 inline-block`}>
                 {i + 1}
@@ -31,7 +31,7 @@ export function SlidePanel() {
                 className={`text-gray-500 text-xl h-32 rounded-lg p-1 flex justify-center items-center bg-white bg-opacity-90 shadow-lg font-bold ${
                   i === count ? 'outline outline-red-300' : ''
                 }`}>
-                <span className="line-clamp-2 break-words">{slide.text}</span>
+                <span className="line-clamp-2 break-words">{slide.title}</span>
               </div>
             </Button>
           </div>
