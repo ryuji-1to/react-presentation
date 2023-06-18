@@ -1,7 +1,7 @@
 import { usePresentation } from '../../hooks/use-presentation';
 import { useSlides } from '../../hooks/use-slides';
 
-export const PresentationFooter = () => {
+export function PresentationFooter() {
   const { count } = usePresentation();
   const { slides } = useSlides();
   return (
@@ -9,4 +9,4 @@ export const PresentationFooter = () => {
       <small className="text-gray-900 font-bold">{count + 1 + ' / ' + slides.length}</small>
     </footer>
   );
-};
+}

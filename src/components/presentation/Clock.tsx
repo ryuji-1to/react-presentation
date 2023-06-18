@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export const Clock = (props: { size?: 'sm' | 'lg' }) => {
+export function Clock(props: { size?: 'sm' | 'lg' }) {
   const [time, setTime] = useState(() => Date.now());
   const now = new Date(time);
   const date = now.getHours().toString().padStart(2, '0') + ':' + now.getMinutes().toString().padStart(2, '0');
@@ -19,4 +19,4 @@ export const Clock = (props: { size?: 'sm' | 'lg' }) => {
       <span className="ml-2">{now.getSeconds().toString().padStart(2, '0')}</span>
     </span>
   );
-};
+}

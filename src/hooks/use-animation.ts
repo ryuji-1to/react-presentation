@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-const callback = (entries: IntersectionObserverEntry[], className: string) => {
+function callback(entries: IntersectionObserverEntry[], className: string) {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       entry.target.classList.add(className);
@@ -8,9 +8,9 @@ const callback = (entries: IntersectionObserverEntry[], className: string) => {
       entry.target.classList.remove(className);
     }
   });
-};
+}
 
-export const useAnimation = () => {
+export function useAnimation() {
   const fadeIn = () => {
     const fadeInAnimation = () => {
       const observer = new IntersectionObserver((entries) => callback(entries, 'animate-fadeIn'));
@@ -27,4 +27,4 @@ export const useAnimation = () => {
   };
 
   return { fadeIn };
-};
+}

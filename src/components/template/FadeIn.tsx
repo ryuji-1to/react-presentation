@@ -1,11 +1,10 @@
-import type { ComponentPropsWithoutRef, ReactNode } from 'react';
 import { useAnimation } from '../../hooks/use-animation';
 
 type Props = {
-  children: ReactNode;
-} & ComponentPropsWithoutRef<'div'>;
+  children: React.ReactNode;
+} & React.ComponentPropsWithoutRef<'div'>;
 
-export const FadeIn = ({ children, className, ...rest }: Props) => {
+export function FadeIn({ children, className, ...rest }: Props) {
   useAnimation().fadeIn();
 
   return (
@@ -13,4 +12,4 @@ export const FadeIn = ({ children, className, ...rest }: Props) => {
       {children}
     </div>
   );
-};
+}

@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef } from 'react';
 
 type Callback = (e: KeyboardEvent) => void;
 
-export const useKey = (keys: Array<number | string>, callback: Callback, resetKey = false) => {
+export function useKey(keys: Array<KeyboardEvent['key']>, callback: Callback, resetKey = false) {
   const callbackRef = useRef<Callback>(callback);
   const handleKeydown = useCallback(
     (e: KeyboardEvent) => {
@@ -23,4 +23,4 @@ export const useKey = (keys: Array<number | string>, callback: Callback, resetKe
       return () => window.removeEventListener('keydown', handleKeydown);
     }
   }, [callback, handleKeydown, keys]);
-};
+}

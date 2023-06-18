@@ -1,30 +1,13 @@
-import { ReactNode, useCallback, useState } from 'react';
 import { SlidePanel } from './SlidePanel';
-import { useKey } from '../../hooks/use-key';
 import { PresentationDetail } from './PresentationDetail';
+import { usePresentation } from '../../hooks/use-presentation';
 
-type Props = {
-  children: ReactNode;
-};
-
-export const Presentation = ({ children }: Props) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleOpen = useCallback(() => {
-    setIsOpen(true);
-  }, []);
-
-  const handleClose = useCallback(() => {
-    setIsOpen(false);
-  }, []);
-
-  useKey(['o'], handleOpen);
-  useKey(['c'], handleClose);
-
+export function Presentation() {
+  const { currentSlide } = usePresentation();
   return (
     <PresentationDetail>
-      <SlidePanel isOpen={isOpen} onClose={handleClose} />
-      {children}
+      <SlidePanel />
+      {currentSlide}
     </PresentationDetail>
   );
-};
+}
