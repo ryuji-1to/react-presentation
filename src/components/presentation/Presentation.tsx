@@ -1,15 +1,13 @@
 import { SlidePanel } from './SlidePanel';
 import { PresentationDetail } from './PresentationDetail';
+import { usePresentation } from '../../hooks/use-presentation';
 
-type Props = {
-  children: React.ReactNode;
-};
-
-export function Presentation({ children }: Props) {
+export function Presentation() {
+  const { currentSlide } = usePresentation();
   return (
     <PresentationDetail>
       <SlidePanel />
-      {children}
+      {currentSlide}
     </PresentationDetail>
   );
 }
