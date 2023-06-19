@@ -8,6 +8,7 @@ import { useKey } from '../../hooks/use-key';
 
 export function Presentation({ slides }: { slides: Slide[] }) {
   const { currentSlide, currentIndex, nextSlide, prevSlide } = usePresentation(slides);
+
   useKey(['ArrowRight'], nextSlide);
   useKey(['ArrowLeft'], prevSlide);
 
@@ -16,7 +17,7 @@ export function Presentation({ slides }: { slides: Slide[] }) {
       <SlidePanel slides={slides} />
       <PresentationHeader />
       {currentSlide}
-      <PresentationFooter slides={slides} currentIndex={currentIndex} />
+      <PresentationFooter allSlidesCount={slides.length} currentIndex={currentIndex} />
     </PresentationDetail>
   );
 }
