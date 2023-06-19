@@ -1,32 +1,31 @@
 import { useCallback } from 'react';
 import { atom, useRecoilState } from 'recoil';
-import { useSlides } from './use-slides';
+import { Slide } from '../App';
 
 export const slideState = atom({
   key: 'slideCount',
   default: 0
 });
 
-export function usePresentation() {
-  const [count, setCount] = useRecoilState(slideState);
-  const { slides } = useSlides();
+export function usePresentation(slides: Slide[]) {
+  const [currentIndex, setCurrentIndex] = useRecoilState(slideState);
 
-  const currentSlide = slides[count].slide;
+  const currentSlide = slides[currentIndex]?.slide;
 
   const nextSlide = useCallback(() => {
-    setCount((c) => Math.min(slides.length - 1, c + 1));
+    setCurrentIndex((c) => Math.min(slides.length - 1, c + 1));
   }, []);
 
   const prevSlide = useCallback(() => {
-    setCount((c) => Math.max(0, c - 1));
+    setCurrentIndex((c) => Math.max(0, c - 1));
   }, []);
 
   const setSlide = useCallback((count: number) => {
-    setCount(count);
+    setCurrentIndex(count);
   }, []);
 
   return {
-    count,
+    currentIndex,
     currentSlide,
     nextSlide,
     prevSlide,

@@ -1,13 +1,12 @@
 import { HiOutlineX } from 'react-icons/hi';
 import { usePresentation } from '../../hooks/use-presentation';
-import { useSlides } from '../../hooks/use-slides';
 import { Button } from '../share/Button';
 import { useReducer } from 'react';
 import { useKey } from '../../hooks/use-key';
+import { Slide } from '../../App';
 
-export function SlidePanel() {
-  const { count, setSlide } = usePresentation();
-  const { slides } = useSlides();
+export function SlidePanel({ slides }: { slides: Slide[] }) {
+  const { currentIndex, setSlide } = usePresentation(slides);
   const [isOpen, handleToggle] = useReducer((isOpen: boolean) => !isOpen, false);
 
   useKey(['o'], handleToggle);
@@ -24,12 +23,12 @@ export function SlidePanel() {
         {slides.map((slide, i) => (
           <div key={i} className="flex flex-col items-center justify-center w-full">
             <Button onClick={() => setSlide(i)} className="w-full">
-              <span className={`${i === count ? 'text-red-400' : 'text-gray-300'} font-bold mb-1 inline-block`}>
+              <span className={`${i === currentIndex ? 'text-red-400' : 'text-gray-300'} font-bold mb-1 inline-block`}>
                 {i + 1}
               </span>
               <div
                 className={`text-gray-500 text-xl h-32 rounded-lg p-1 flex justify-center items-center bg-white bg-opacity-90 shadow-lg font-bold ${
-                  i === count ? 'outline outline-red-300' : ''
+                  i === currentIndex ? 'outline outline-red-300' : ''
                 }`}>
                 <span className="line-clamp-2 break-words">{slide.title}</span>
               </div>

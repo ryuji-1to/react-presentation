@@ -1,12 +1,9 @@
-import { usePresentation } from '../../hooks/use-presentation';
-import { useSlides } from '../../hooks/use-slides';
+import { Slide } from '../../App';
 
-export function PresentationFooter() {
-  const { count } = usePresentation();
-  const { slides } = useSlides();
+export function PresentationFooter({ currentIndex, slides }: { currentIndex: number; slides: Slide[] }) {
   return (
     <footer className={`w-full flex justify-center py-3 items-center`}>
-      <small className="text-gray-900 font-bold">{count + 1 + ' / ' + slides.length}</small>
+      <small className="text-gray-900 font-bold">{currentIndex + 1 + ' / ' + slides.length}</small>
     </footer>
   );
 }

@@ -60,20 +60,7 @@ type Props = {
 } & ConditionalProps &
   Omit<React.ComponentPropsWithoutRef<'div'>, 'children'>;
 
-export function Slide({
-  children,
-  animation,
-  position,
-  prose,
-  slideTitle,
-  resetKeyEvent,
-  renderContent,
-  ...rest
-}: Props) {
-  const { nextSlide, prevSlide } = usePresentation();
-  useKey(['Enter', 'l'], nextSlide, resetKeyEvent);
-  useKey(['h'], prevSlide, resetKeyEvent);
-
+export function Slide({ children, animation, position, prose, slideTitle, renderContent, ...rest }: Props) {
   const Position = getPosition(position);
   const Animation = getAnimation(animation);
 
