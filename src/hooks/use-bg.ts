@@ -1,5 +1,7 @@
 import { atom, useRecoilState } from 'recoil';
-export type BGType = 'Spring' | 'Summer' | 'Fall' | 'Winter' | 'Default';
+export type BGType = typeof bgList[number];
+
+export const bgList = ['Default', 'Spring', 'Summer', 'Fall', 'Winter'] as const;
 
 function getBG(type: BGType) {
   switch (type) {

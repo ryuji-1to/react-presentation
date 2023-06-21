@@ -1,11 +1,9 @@
-import { BGType, useBg } from '../../hooks/use-bg';
+import { BGType, bgList, useBg } from '../../hooks/use-bg';
 import { Clock } from './Clock';
 import { Button } from '../share/Button';
 import { TfiPalette } from 'react-icons/tfi';
 import { useRef, useState } from 'react';
 import { useClickOutside } from '../../hooks/util/use-clickOutside';
-
-const bgList: BGType[] = ['Default', 'Spring', 'Summer', 'Fall', 'Winter'];
 
 export function PresentationHeader() {
   return (
