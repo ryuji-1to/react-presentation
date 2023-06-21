@@ -5,7 +5,11 @@ import { useReducer } from 'react';
 import { useKey } from '../../hooks/use-key';
 import { Slide } from '../../App';
 
-export function SlidePanel({ slides }: { slides: Slide[] }) {
+type Props = {
+  slides: Slide[];
+};
+
+export function SlidePanel({ slides }: Props) {
   const { currentIndex, setSlide } = usePresentation(slides);
   const [isOpen, handleToggle] = useReducer((isOpen: boolean) => !isOpen, false);
 

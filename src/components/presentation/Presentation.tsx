@@ -6,7 +6,10 @@ import { PresentationHeader } from './PresentationHeader';
 import { PresentationFooter } from './PresentationFooter';
 import { useKey } from '../../hooks/use-key';
 
-export function Presentation({ slides }: { slides: Slide[] }) {
+type Props = {
+  slides: Slide[];
+};
+export function Presentation({ slides }: Props) {
   const { currentSlide, currentIndex, nextSlide, prevSlide } = usePresentation(slides);
 
   useKey(['ArrowRight'], nextSlide);
