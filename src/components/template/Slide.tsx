@@ -1,5 +1,3 @@
-import { useKey } from '../../hooks/use-key';
-import { usePresentation } from '../../hooks/use-presentation';
 import { Center } from './Center';
 import { FadeIn } from './FadeIn';
 import { Prose } from './Prose';

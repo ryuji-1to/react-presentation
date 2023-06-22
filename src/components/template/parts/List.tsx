@@ -1,6 +1,11 @@
-export function List({ itemList, className }: { itemList?: React.ReactNode[]; className?: string }) {
+type Props = {
+  itemList?: React.ReactNode[];
+  className?: string;
+} & React.ComponentPropsWithoutRef<'ul'>;
+
+export function List({ itemList, className, ...rest }: Props) {
   return (
-    <ul className={className}>
+    <ul {...rest} className={className}>
       {itemList?.map((item, i) => (
         <li key={i}>{item}</li>
       ))}

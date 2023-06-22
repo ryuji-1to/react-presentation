@@ -1,8 +1,7 @@
-import type { ComponentPropsWithoutRef, ReactElement, ReactNode } from 'react';
 type Props = {
-  icon?: ReactElement;
-  children?: ReactNode;
-} & ComponentPropsWithoutRef<'button'>;
+  icon?: React.ReactElement;
+  children?: React.ReactNode;
+} & React.ComponentPropsWithoutRef<'button'>;
 
 export function Button({ icon, children, className, ...rest }: Props) {
   return (
