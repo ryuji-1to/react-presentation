@@ -8,12 +8,14 @@ import { useKey } from '../../hooks/use-key';
 
 type Props = {
   slides: Slide[];
+  nextKey?: KeyboardEvent['key'][];
+  previousKey?: KeyboardEvent['key'][];
 };
-export function Presentation({ slides }: Props) {
+export function Presentation({ slides, nextKey = ['ArrowRight', 'Enter'], previousKey = ['ArrowLeft'] }: Props) {
   const { currentSlide, currentIndex, nextSlide, prevSlide } = usePresentation(slides);
 
-  useKey(['ArrowRight'], nextSlide);
-  useKey(['ArrowLeft'], prevSlide);
+  useKey(nextKey, nextSlide);
+  useKey(previousKey, prevSlide);
 
   return (
     <PresentationDetail>

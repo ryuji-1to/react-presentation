@@ -1,5 +1,3 @@
-import { useKey } from '../../hooks/use-key';
-import { usePresentation } from '../../hooks/use-presentation';
 import { Center } from './Center';
 import { FadeIn } from './FadeIn';
 import { Prose } from './Prose';
@@ -66,7 +64,7 @@ export function Slide({ children, animation, position, prose, slideTitle, render
 
   let element = (
     <div {...rest}>
-      {slideTitle && <Heading contentEditable>{slideTitle}</Heading>}
+      {slideTitle && <Heading>{slideTitle}</Heading>}
       {renderContent?.(Parts)}
       {typeof children === 'function' ? children(Parts) : children}
     </div>
