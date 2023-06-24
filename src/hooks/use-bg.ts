@@ -19,8 +19,10 @@ function getBG(type: BGType) {
   }
 }
 
+const LOCAL_STORAGE_KEY = 'slide-bg-theme';
+
 function getLocal(): BGType {
-  const value = localStorage.getItem('slide-bg-theme');
+  const value = localStorage.getItem(LOCAL_STORAGE_KEY);
   if (!value) {
     return 'Default';
   }
@@ -28,7 +30,7 @@ function getLocal(): BGType {
 }
 
 function setLocal(value: BGType) {
-  localStorage.setItem('slide-bg-theme', value);
+  localStorage.setItem(LOCAL_STORAGE_KEY, value);
 }
 export const bgState = atom<BGType>({
   key: 'bgType',
