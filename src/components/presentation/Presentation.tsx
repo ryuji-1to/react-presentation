@@ -5,13 +5,21 @@ import { Slide } from '../../App';
 import { PresentationHeader } from './PresentationHeader';
 import { PresentationFooter } from './PresentationFooter';
 import { useKey } from '../../hooks/use-key';
+import { Clock } from './Clock';
+import { BgSelect } from './BgSelect';
 
 type Props = {
-  slides: Slide[];
+  slides: [Slide, ...Slide[]];
+  showClock?: boolean;
   nextKey?: KeyboardEvent['key'][];
   previousKey?: KeyboardEvent['key'][];
 };
-export function Presentation({ slides, nextKey = ['ArrowRight', 'Enter'], previousKey = ['ArrowLeft'] }: Props) {
+export function Presentation({
+  slides,
+  showClock = false,
+  nextKey = ['ArrowRight', 'Enter'],
+  previousKey = ['ArrowLeft']
+}: Props) {
   const { currentSlide, currentIndex, nextSlide, prevSlide } = usePresentation(slides);
 
   useKey(nextKey, nextSlide);
@@ -20,7 +28,10 @@ export function Presentation({ slides, nextKey = ['ArrowRight', 'Enter'], previo
   return (
     <PresentationDetail>
       <SlidePanel slides={slides} />
-      <PresentationHeader />
+      <PresentationHeader>
+        {showClock && <Clock />}
+        <BgSelect />
+      </PresentationHeader>
       {currentSlide}
       <PresentationFooter allSlidesCount={slides.length} currentIndex={currentIndex} />
     </PresentationDetail>

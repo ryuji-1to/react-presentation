@@ -1,9 +1,10 @@
 import { HiOutlineX } from 'react-icons/hi';
 import { usePresentation } from '../../hooks/use-presentation';
 import { Button } from '../share/Button';
-import { useReducer } from 'react';
+import { useRef, useState } from 'react';
 import { useKey } from '../../hooks/use-key';
 import { Slide } from '../../App';
+import { useClickOutside } from '../../hooks/util/use-clickOutside';
 
 type Props = {
   slides: Slide[];
@@ -11,12 +12,20 @@ type Props = {
 
 export function SlidePanel({ slides }: Props) {
   const { currentIndex, setSlide } = usePresentation(slides);
-  const [isOpen, handleToggle] = useReducer((isOpen: boolean) => !isOpen, false);
-
+  const [isOpen, setIsOpen] = useState(false);
+  const ref = useRef(null);
+  const handleToggle = () => {
+    setIsOpen((prev) => !prev);
+  };
+  const handleClose = () => {
+    setIsOpen(false);
+  };
   useKey(['o'], handleToggle);
+  useClickOutside(ref, handleClose);
 
   return (
     <div
+      ref={ref}
       className={`h-screen absolute top-0 left-0 z-10 bg-gray-700 bg-opacity-90 backdrop-blur-sm transition w-56 duration-300 shadow-2xl p-3 overflow-auto  ${
         isOpen ? 'translate-x-0' : '-translate-x-56 opacity-0'
       }`}>

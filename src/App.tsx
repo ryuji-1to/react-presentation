@@ -12,12 +12,15 @@ export type Slide = {
   slide: React.ReactElement;
 };
 
-const slides: Slide[] = [createSlide('Example Slide', <Example />), createSlide('Example Slide2', <Example2 />)];
+const slides: [Slide, ...Slide[]] = [
+  createSlide('Example Slide', <Example />),
+  createSlide('Example Slide2', <Example2 />)
+];
 
 export default function App() {
   return (
     <BackGround>
-      <Presentation slides={slides} />
+      <Presentation showClock slides={slides} />
     </BackGround>
   );
 }
