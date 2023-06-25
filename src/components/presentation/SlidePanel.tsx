@@ -14,12 +14,15 @@ export function SlidePanel({ slides }: Props) {
   const { currentIndex, setSlide } = usePresentation(slides);
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef(null);
+
   const handleToggle = () => {
     setIsOpen((prev) => !prev);
   };
+
   const handleClose = () => {
     setIsOpen(false);
   };
+
   useKey(['o'], handleToggle);
   useClickOutside(ref, handleClose);
 
