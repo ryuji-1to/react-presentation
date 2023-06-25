@@ -25,7 +25,8 @@ jobs:
         with:
           node-version: 18
           # yarnのキャッシュを効かすために設定 (npmのかたはnpmで)
-          cache: pnpm
+      - name: install pnpm
+        run: npm i -g pnpm
       - name: pnpm i
         run: pnpm i
       - name: pnpm build
