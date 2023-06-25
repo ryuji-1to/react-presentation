@@ -58,12 +58,21 @@ type Props = {
 } & ConditionalProps &
   Omit<React.ComponentPropsWithoutRef<'div'>, 'children'>;
 
-export function Slide({ children, animation, position, prose = true, slideTitle, renderContent, ...rest }: Props) {
+export function Slide({
+  children,
+  className,
+  animation,
+  position,
+  prose = true,
+  slideTitle,
+  renderContent,
+  ...rest
+}: Props) {
   const Position = getPosition(position);
   const Animation = getAnimation(animation);
 
   let element = (
-    <div {...rest}>
+    <div {...rest} className={`${className} ${prose ? 'prose' : ''}`}>
       {slideTitle && <Heading>{slideTitle}</Heading>}
       {renderContent?.(Parts)}
       {typeof children === 'function' ? children(Parts) : children}
@@ -74,10 +83,6 @@ export function Slide({ children, animation, position, prose = true, slideTitle,
   // const options = {
   //   prose: false
   // };
-
-  if (prose) {
-    element = <Prose>{element}</Prose>;
-  }
 
   if (Animation) {
     element = <Animation>{element}</Animation>;
