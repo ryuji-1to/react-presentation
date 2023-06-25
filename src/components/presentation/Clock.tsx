@@ -7,7 +7,7 @@ export function Clock(props: { size?: 'sm' | 'lg' }) {
 
   useEffect(() => {
     const timeId = setInterval(() => setTime(Date.now()), 1000);
-    return () => clearTimeout(timeId);
+    return () => clearInterval(timeId);
   }, []);
 
   return (
