@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "build:docs": "tsc && vite build && cp -r dist docs",
+    "rebuild:docs": "vite build && rm -R docs && cp -r dist docs",
     "preview": "vite preview",
     "prettier": "prettier --write .",
     "lint": "eslint ."
