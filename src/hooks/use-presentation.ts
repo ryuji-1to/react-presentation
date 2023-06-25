@@ -21,10 +21,10 @@ export const slideState = atom({
   default: getLocalPageNumber()
 });
 
-export function usePresentation(slides: Slide[]) {
+export function usePresentation(slides: [Slide, ...Slide[]]) {
   const [currentIndex, setCurrentIndex] = useRecoilState(slideState);
 
-  const currentSlide = slides[currentIndex]?.slide;
+  const currentSlide = slides[currentIndex]?.slide || slides[0].slide;
 
   const nextSlide = useCallback(() => {
     setCurrentIndex((c) => {

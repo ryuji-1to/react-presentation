@@ -7,6 +7,7 @@ import { PresentationFooter } from './PresentationFooter';
 import { useKey } from '../../hooks/use-key';
 import { Clock } from './Clock';
 import { BgSelect } from './BgSelect';
+import { BackGround } from '../../BackGround';
 
 type Props = {
   slides: [Slide, ...Slide[]];
@@ -26,14 +27,16 @@ export function Presentation({
   useKey(previousKey, prevSlide);
 
   return (
-    <PresentationDetail>
-      <SlidePanel slides={slides} />
-      <PresentationHeader>
-        {showClock && <Clock />}
-        <BgSelect />
-      </PresentationHeader>
-      {currentSlide}
-      <PresentationFooter allSlidesCount={slides.length} currentIndex={currentIndex} />
-    </PresentationDetail>
+    <BackGround>
+      <PresentationDetail>
+        <SlidePanel slides={slides} />
+        <PresentationHeader>
+          {showClock && <Clock />}
+          <BgSelect />
+        </PresentationHeader>
+        {currentSlide}
+        <PresentationFooter allSlidesCount={slides.length} currentIndex={currentIndex} />
+      </PresentationDetail>
+    </BackGround>
   );
 }

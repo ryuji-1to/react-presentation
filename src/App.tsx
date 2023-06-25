@@ -18,9 +18,5 @@ const slides: [Slide, ...Slide[]] = [
 ];
 
 export default function App() {
-  return (
-    <BackGround>
-      <Presentation showClock slides={slides} />
-    </BackGround>
-  );
+  return <Presentation showClock slides={slides} />;
 }
