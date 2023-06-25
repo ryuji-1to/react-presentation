@@ -7,7 +7,7 @@ import { Slide } from '../../App';
 import { useClickOutside } from '../../hooks/util/use-clickOutside';
 
 type Props = {
-  slides: Slide[];
+  slides: [Slide, ...Slide[]];
 };
 
 export function SlidePanel({ slides }: Props) {
