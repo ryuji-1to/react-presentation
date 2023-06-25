@@ -1,6 +1,10 @@
 import { useBg } from './hooks/use-bg';
 
-export function BackGround({ children }: { children: React.ReactNode }) {
+type Props = {
+  children: React.ReactNode;
+};
+export function BackGround({ children }: Props) {
   const { bg } = useBg();
+
   return <div className={`h-full ${bg}`}>{children}</div>;
 }

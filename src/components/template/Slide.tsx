@@ -70,6 +70,11 @@ export function Slide({ children, animation, position, prose = true, slideTitle,
     </div>
   );
 
+  // TODO:
+  // const options = {
+  //   prose: false
+  // };
+
   if (prose) {
     element = <Prose>{element}</Prose>;
   }
