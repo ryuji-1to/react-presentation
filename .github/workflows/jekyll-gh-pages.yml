@@ -28,7 +28,7 @@ jobs:
       - name: install pnpm
         run: npm i -g pnpm
       - name: pnpm i
-        run: pnpm i
+        run: pnpm i --no-frozen-lockfile
       - name: pnpm build
         run: pnpm build
         # GIthubページは https://USERNAME.github.io/REPOSITORY_NAME/
