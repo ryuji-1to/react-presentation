@@ -26,10 +26,10 @@ jobs:
           node-version: 18
           # yarnのキャッシュを効かすために設定 (npmのかたはnpmで)
           cache: pnpm
-      - name: yarn i
-        run: yarn i
-      - name: yarn build
-        run: yarn build
+      - name: pnpm i
+        run: pnpm i
+      - name: pnpm build
+        run: pnpm build
         # GIthubページは https://USERNAME.github.io/REPOSITORY_NAME/
         # となるので、envを追加してviteのベースパスを変えるように設定します。
         env:
