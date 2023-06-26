@@ -6,7 +6,10 @@ export function Example() {
       {(s) => (
         <div>
           <s.Text size="xl">This is text component!!!!!!</s.Text>
-          <s.List className="list-decimal marker:text-gray-500" itemList={['hello', 'world']} />
+          <s.List
+            className="list-decimal marker:text-gray-500"
+            itemList={['hello', 'world']}
+          />
         </div>
       )}
     </Slide>
