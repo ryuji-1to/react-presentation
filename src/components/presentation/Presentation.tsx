@@ -5,8 +5,6 @@ import { Slide } from '../../App';
 import { PresentationHeader } from './PresentationHeader';
 import { PresentationFooter } from './PresentationFooter';
 import { useKey } from '../../hooks/use-key';
-import { Clock } from './Clock';
-import { BgSelect } from './BgSelect';
 import { BackGround } from '../../BackGround';
 
 type Props = {
@@ -31,10 +29,7 @@ export function Presentation({
     <BackGround>
       <PresentationDetail>
         <SlidePanel slides={slides} />
-        <PresentationHeader>
-          {showClock && <Clock />}
-          <BgSelect />
-        </PresentationHeader>
+        <PresentationHeader showClock={showClock} />
         {currentSlide}
         <PresentationFooter
           allSlidesCount={slides.length}
