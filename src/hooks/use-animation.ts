@@ -13,7 +13,9 @@ function callback(entries: IntersectionObserverEntry[], className: string) {
 export function useAnimation() {
   const fadeIn = () => {
     const fadeInAnimation = () => {
-      const observer = new IntersectionObserver((entries) => callback(entries, 'animate-fadeIn'));
+      const observer = new IntersectionObserver((entries) =>
+        callback(entries, 'animate-fadeIn')
+      );
       const target = document.querySelector('.fadeIn');
       if (!target) {
         return;

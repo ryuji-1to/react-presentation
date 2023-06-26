@@ -14,4 +14,9 @@ parserOptions:
 plugins:
   - react
   - '@typescript-eslint'
-rules: { 'react/jsx-uses-react': 'off', 'react/react-in-jsx-scope': 'off', '@typescript-eslint/ban-ts-comment': 'warn' }
+rules:
+  {
+    'react/jsx-uses-react': 'off',
+    'react/react-in-jsx-scope': 'off',
+    '@typescript-eslint/ban-ts-comment': 'warn'
+  }

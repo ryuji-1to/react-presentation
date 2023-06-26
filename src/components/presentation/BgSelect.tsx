@@ -33,11 +33,15 @@ function SelectBg(props: { onClose: () => void }) {
   useClickOutside(ref, props.onClose);
 
   return (
-    <ul ref={ref} className="absolute top-10 right-0 bg-white p-2 z-10 rounded-md drop-shadow-lg">
+    <ul
+      ref={ref}
+      className="absolute top-10 right-0 bg-white p-2 z-10 rounded-md drop-shadow-lg">
       {bgList.map((bg) => (
         <li key={bg} className="flex items-center rounded-sm hover:bg-gray-100">
           <button
-            className={`w-full text-left py-1 px-2 rounded-sm ${bgType === bg ? 'font-bold bg-gray-100' : ''}`}
+            className={`w-full text-left py-1 px-2 rounded-sm ${
+              bgType === bg ? 'font-bold bg-gray-100' : ''
+            }`}
             onClick={() => handleSetBg(bg)}>
             {bg}
           </button>

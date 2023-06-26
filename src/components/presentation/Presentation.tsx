@@ -21,7 +21,8 @@ export function Presentation({
   nextKey = ['ArrowRight', 'Enter'],
   previousKey = ['ArrowLeft']
 }: Props) {
-  const { currentSlide, currentIndex, nextSlide, prevSlide } = usePresentation(slides);
+  const { currentSlide, currentIndex, nextSlide, prevSlide } =
+    usePresentation(slides);
 
   useKey(nextKey, nextSlide);
   useKey(previousKey, prevSlide);
@@ -35,7 +36,10 @@ export function Presentation({
           <BgSelect />
         </PresentationHeader>
         {currentSlide}
-        <PresentationFooter allSlidesCount={slides.length} currentIndex={currentIndex} />
+        <PresentationFooter
+          allSlidesCount={slides.length}
+          currentIndex={currentIndex}
+        />
       </PresentationDetail>
     </BackGround>
   );

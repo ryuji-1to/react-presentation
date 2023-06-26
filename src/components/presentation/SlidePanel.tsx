@@ -33,13 +33,21 @@ export function SlidePanel({ slides }: Props) {
         isOpen ? 'translate-x-0' : '-translate-x-56 opacity-0'
       }`}>
       <header className="flex justify-end">
-        <Button icon={<HiOutlineX className="text-gray-900" />} onClick={handleToggle} />
+        <Button
+          icon={<HiOutlineX className="text-gray-900" />}
+          onClick={handleToggle}
+        />
       </header>
       <div className="space-y-4">
         {slides.map((slide, i) => (
-          <div key={i} className="flex flex-col items-center justify-center w-full">
+          <div
+            key={i}
+            className="flex flex-col items-center justify-center w-full">
             <Button onClick={() => setSlide(i)} className="w-full">
-              <span className={`${i === currentIndex ? 'text-red-400' : 'text-gray-300'} font-bold mb-1 inline-block`}>
+              <span
+                className={`${
+                  i === currentIndex ? 'text-red-400' : 'text-gray-300'
+                } font-bold mb-1 inline-block`}>
                 {i + 1}
               </span>
               <div
