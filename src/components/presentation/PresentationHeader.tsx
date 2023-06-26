@@ -1,10 +1,14 @@
+import { BgSelect } from './BgSelect';
+import { Clock } from './Clock';
+
 type Props = {
-  children: React.ReactNode;
+  showClock: boolean;
 };
-export function PresentationHeader({ children }: Props) {
+export function PresentationHeader({ showClock }: Props) {
   return (
     <header className={`flex space-x-4 items-center py-2 px-4 justify-end`}>
-      {children}
+      {showClock && <Clock />}
+      <BgSelect />
     </header>
   );
 }
