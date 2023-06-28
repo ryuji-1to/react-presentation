@@ -1,7 +1,6 @@
-import { BackGround } from './BackGround';
 import { Presentation } from './components/presentation/Presentation';
-import { Example } from './components/slides/Example';
-import { Example2 } from './components/slides/Example2';
+import { Slide } from './components/template/Slide';
+import MD from './slides/post.mdx';
 
 const createSlide = (title: string, slide: React.ReactElement) => {
   return { title, slide };
@@ -12,10 +11,7 @@ export type Slide = {
   slide: React.ReactElement;
 };
 
-const slides: [Slide, ...Slide[]] = [
-  createSlide('Example Slide', <Example />),
-  createSlide('Example Slide2', <Example2 />)
-];
+const slides: [Slide, ...Slide[]] = [createSlide('Example slide', <MD />)];
 
 export default function App() {
   return <Presentation showClock slides={slides} />;
