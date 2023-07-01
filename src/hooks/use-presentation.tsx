@@ -1,6 +1,7 @@
 import { useCallback } from 'react';
 import { atom, useRecoilState } from 'recoil';
-import { Slide } from '../App';
+import { Slide } from '../components/template/Slide';
+import type { Slides } from '../types';
 
 const LOCAL_STORAGE_KEY = 'slide-page-number';
 
@@ -21,10 +22,15 @@ export const slideState = atom({
   default: getLocalPageNumber()
 });
 
-export function usePresentation(slides: [Slide, ...Slide[]]) {
+export function usePresentation(slides: Slides) {
   const [currentIndex, setCurrentIndex] = useRecoilState(slideState);
 
-  const currentSlide = slides[currentIndex]?.slide || slides[0].slide;
+  const { slide, title, animation } = slides[currentIndex] || slides[0];
+  const currentSlide = (
+    <Slide key={title} animation={animation}>
+      {slide}
+    </Slide>
+  );
 
   const nextSlide = useCallback(() => {
     setCurrentIndex((c) => {
