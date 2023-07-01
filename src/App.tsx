@@ -1,17 +1,26 @@
 import { Presentation } from './components/presentation/Presentation';
-import { Slide } from './components/template/Slide';
 import MD from './slides/post.mdx';
+import Center from './slides/center.mdx';
+import type { Slides } from './types';
 
-const createSlide = (title: string, slide: React.ReactElement) => {
-  return { title, slide };
-};
-
-export type Slide = {
+export type TSlide = {
   title: string;
   slide: React.ReactElement;
 };
 
-const slides: [Slide, ...Slide[]] = [createSlide('Example slide', <MD />)];
+const slides: Slides = [
+  { title: 'Example slide', slide: <MD />, animation: 'fadeIn' },
+  {
+    title: 'Center slide',
+    slide: <Center />,
+    animation: 'fadeIn'
+  },
+  {
+    title: 'jsx slide',
+    slide: <div>hello world</div>,
+    animation: 'fadeIn'
+  }
+];
 
 export default function App() {
   return <Presentation showClock slides={slides} />;

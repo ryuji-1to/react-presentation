@@ -3,11 +3,11 @@ import { usePresentation } from '../../hooks/use-presentation';
 import { Button } from '../share/Button';
 import { useRef, useState } from 'react';
 import { useKey } from '../../hooks/use-key';
-import { Slide } from '../../App';
 import { useClickOutside } from '../../hooks/util/use-clickOutside';
+import { SlideArgs } from '../../types';
 
 type Props = {
-  slides: [Slide, ...Slide[]];
+  slides: [SlideArgs, ...SlideArgs[]];
 };
 
 export function SlidePanel({ slides }: Props) {
