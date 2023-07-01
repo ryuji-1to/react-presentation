@@ -48,8 +48,10 @@ export function Slide({
     <div
       {...rest}
       className={`${className} ${
-        prose ? 'prose prose-sm md:prose-lg lg:prose-xl xl:prose-2xl' : ''
-      } h-full w-full max-w-full`}>
+        prose
+          ? 'prose prose-sm sm:prose-md md:prose-lg lg:prose-xl xl:prose-2xl marker:text-black'
+          : ''
+      } flex flex-col h-full max-w-full`}>
       {children}
     </div>
   );
@@ -64,7 +66,7 @@ export function Slide({
 
   return (
     <div className="flex-1 mx-auto flex items-center">
-      <div className="w-[88vw] aspect-video p-16 bg-white/50 shadow-2xl rounded-2xl backdrop-blur-3xl border-2 border-white">
+      <div className="w-[88vw] aspect-video p-[4vw] bg-white/50 shadow-2xl rounded-2xl backdrop-blur-3xl border-2 border-white">
         {element}
       </div>
     </div>
