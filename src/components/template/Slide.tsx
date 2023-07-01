@@ -1,6 +1,5 @@
 import { Center } from './Center';
 import { FadeIn } from './FadeIn';
-import { Prose } from './Prose';
 import * as Parts from './parts';
 
 type Position = 'center';
@@ -62,7 +61,7 @@ type Props = {
 
 export function Slide({
   children,
-  className,
+  className = '',
   animation,
   position,
   prose = true,
@@ -74,17 +73,12 @@ export function Slide({
   const Animation = getAnimation(animation);
 
   let element = (
-    <div {...rest} className={`${className} ${prose ? 'prose' : ''}`}>
+    <div {...rest} className={`${className} ${prose ? 'prose prose-lg' : ''}`}>
       {slideTitle && <Heading>{slideTitle}</Heading>}
       {renderContent?.(Parts)}
       {typeof children === 'function' ? children(Parts) : children}
     </div>
   );
-
-  // TODO:
-  // const options = {
-  //   prose: false
-  // };
 
   if (Animation) {
     element = <Animation>{element}</Animation>;
@@ -96,7 +90,7 @@ export function Slide({
 
   return (
     <div className="flex-1 mx-auto flex items-center">
-      <div className="w-[85vw] aspect-video p-20 bg-white/50 shadow-2xl rounded-2xl backdrop-blur-3xl border-2 border-white">
+      <div className="w-[85vw] aspect-video p-16 bg-white/50 shadow-2xl rounded-2xl backdrop-blur-3xl border-2 border-white">
         {element}
       </div>
     </div>
