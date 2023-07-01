@@ -1,6 +1,8 @@
 import { Presentation } from './components/presentation/Presentation';
 import MD from './slides/post.mdx';
 import Center from './slides/center.mdx';
+import TwoColumn from './slides/two-column.mdx';
+import ListItem from './slides/list-item.mdx';
 import type { Slides } from './types';
 
 export type TSlide = {
@@ -17,7 +19,17 @@ const slides: Slides = [
   },
   {
     title: 'jsx slide',
-    slide: <div>hello world</div>,
+    slide: <div>This is jsx</div>,
+    animation: 'fadeIn'
+  },
+  {
+    title: 'two column slide',
+    slide: <TwoColumn />,
+    animation: 'fadeIn'
+  },
+  {
+    title: 'list item slide',
+    slide: <ListItem />,
     animation: 'fadeIn'
   }
 ];
