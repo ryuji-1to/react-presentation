@@ -49,7 +49,7 @@ export function Slide({
       {...rest}
       className={`${className} ${
         prose
-          ? 'prose prose-sm sm:prose-md md:prose-lg lg:prose-xl xl:prose-2xl marker:text-black'
+          ? 'prose prose-sm md:prose-md lg:prose-lg xl:prose-xl marker:text-black'
           : ''
       } flex flex-col h-full max-w-full`}>
       {children}
