@@ -1,17 +1,12 @@
 import { Presentation } from './components/presentation/Presentation';
-import MD from './slides/post.mdx';
+import Post from './slides/post.mdx';
 import Center from './slides/center.mdx';
 import TwoColumn from './slides/two-column.mdx';
 import ListItem from './slides/list-item.mdx';
 import type { Slides } from './types';
 
-export type TSlide = {
-  title: string;
-  slide: React.ReactElement;
-};
-
 const slides: Slides = [
-  { title: 'Example slide', slide: <MD />, animation: 'fadeIn' },
+  { title: 'Example slide', slide: <Post />, animation: 'fadeIn' },
   {
     title: 'Center slide',
     slide: <Center />,
