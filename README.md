@@ -8,3 +8,4 @@ wip
 
 1. github actions
 2. manually deploy
+    1. `pnpm run build:docs`
