@@ -3,9 +3,11 @@ import Post from './slides/post.mdx';
 import Center from './slides/center.mdx';
 import TwoColumn from './slides/two-column.mdx';
 import ListItem from './slides/list-item.mdx';
+import MD from './slides/markdown.mdx';
 import type { Slides } from './types';
 
 const slides: Slides = [
+  { title: 'Markdown slide', slide: <MD />, animation: 'fadeIn' },
   { title: 'Example slide', slide: <Post />, animation: 'fadeIn' },
   {
     title: 'Center slide',
