@@ -51,7 +51,7 @@ export function Slide({
         prose
           ? 'prose prose-sm md:prose-md lg:prose-lg xl:prose-xl marker:text-black'
           : ''
-      } flex flex-col h-full max-w-full`}>
+      } flex flex-col h-full max-w-full overflow-auto`}>
       {children}
     </div>
   );
