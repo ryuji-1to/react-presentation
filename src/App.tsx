@@ -32,5 +32,5 @@ const slides: Slides = [
 ];
 
 export default function App() {
-  return <Presentation showClock slides={slides} />;
+  return <Presentation showClock={false} slides={slides} />;
 }
