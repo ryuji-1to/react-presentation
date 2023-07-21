@@ -8,11 +8,13 @@ import { useKey } from '../../hooks/use-key';
 import { BackGround } from '../../BackGround';
 import type { Slides } from '../../types';
 
+type Key = KeyboardEvent['key'];
+
 type Props = {
   slides: Slides;
   showClock?: boolean;
-  nextKey?: KeyboardEvent['key'][];
-  previousKey?: KeyboardEvent['key'][];
+  nextKey?: [Key, ...Key[]];
+  previousKey?: [Key, ...Key[]];
 };
 export function Presentation({
   slides,
